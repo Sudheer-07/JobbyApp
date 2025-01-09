@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import Loader from 'react-loader-spinner'
+import Audio from 'react-loader-spinner'
 import './index.css'
 
 const apiStatusConstants = {
@@ -74,7 +74,7 @@ class ProfileCard extends Component {
 
   renderProgressView = () => (
     <div className="loader-container">
-      <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+      <Audio type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 

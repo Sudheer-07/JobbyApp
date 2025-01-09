@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {BsSearch} from 'react-icons/bs'
-import Loader from 'react-loader-spinner'
+import Audio from 'react-loader-spinner'
 import FilterGroup from '../FilterGroup'
 import ProfileCard from '../ProfileCard'
 import JobItemCards from '../JobItemCards'
@@ -69,8 +69,8 @@ class JobItemDetailsCards extends Component {
   }
 
   renderProgressView = () => (
-    <div className='loader-container'>
-      <Loader type='ThreeDots' color='#ffffff' height='50' width='50' />
+    <div className="loader-container">
+      <Audio type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
 
@@ -78,7 +78,7 @@ class JobItemDetailsCards extends Component {
     const {jobsList} = this.state
     if (jobsList.length > 0) {
       return (
-        <ul className='jobs-list-order'>
+        <ul className="jobs-list-order">
           {jobsList.map(e => (
             <JobItemCards key={e.id} item={e} />
           ))}
@@ -86,14 +86,14 @@ class JobItemDetailsCards extends Component {
       )
     }
     return (
-      <div className='no-products-view'>
+      <div className="no-products-view">
         <img
-          src='https://assets.ccbp.in/frontend/react-js/no-jobs-img.png'
-          className='no-products-img'
-          alt='no jobs'
+          src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+          className="no-products-img"
+          alt="no jobs"
         />
-        <h1 className='no-products-heading'>No Jobs Found</h1>
-        <p className='no-products-description'>
+        <h1 className="no-products-heading">No Jobs Found</h1>
+        <p className="no-products-description">
           We could not find any Jobs. Try other filters.
         </p>
       </div>
@@ -101,24 +101,23 @@ class JobItemDetailsCards extends Component {
   }
 
   renderFailureView = () => (
-    <div className='products-error-view-container'>
+    <div className="products-error-view-container">
       <img
-        src='https://assets.ccbp.in/frontend/react-js/failure-img.png'
-        alt='failure view'
-        className='products-failure-img'
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="products-failure-img"
       />
-      <h1 className='product-failure-heading-text'>
+      <h1 className="product-failure-heading-text">
         Oops! Something Went Wrong
       </h1>
-      <p className='products-failure-description'>
+      <p className="products-failure-description">
         We cannot seem to find the page you are looking for
       </p>
-      <div className='loader-container'>
+      <div className="loader-container">
         <button
-          type='button'
-          className='logout-btn'
+          type="button"
+          className="logout-btn"
           onClick={this.getJobItemDetails}
-          aria-label='Retry'
         >
           Retry
         </button>
@@ -179,10 +178,10 @@ class JobItemDetailsCards extends Component {
     const {searchInput} = this.state
     const {salaryRangesList, employmentTypesList} = this.props
     return (
-      <div className='job-card'>
-        <div className='side-bar'>
+      <div className="job-card">
+        <div className="side-bar">
           <ProfileCard />
-          <hr className='line' />
+          <hr className="line" />
           <FilterGroup
             salaryRangesList={salaryRangesList}
             employmentTypesList={employmentTypesList}
@@ -191,23 +190,24 @@ class JobItemDetailsCards extends Component {
           />
         </div>
 
-        <div className='results-container'>
-          <div className='search-container'>
+        <div className="results-container">
+          <div className="search-container">
             <input
-              type='search'
-              className='search-bar'
-              placeholder='Search'
+              type="search"
+              className="search-bar"
+              placeholder="Search"
               onChange={this.onChangeSearchInput}
               onKeyDown={this.onSearchEnter}
               value={searchInput}
             />
             <button
-              type='button'
+              type="button"
               onClick={this.onSearch}
-              className='icon'
-              testid='searchButton'
+              className="icon"
+              data-testid="searchButton"
+              aria-label="Search"
             >
-              <BsSearch className='search-icon' />
+              <BsSearch className="search-icon" />
             </button>
           </div>
           {this.renderJobDetails()}
